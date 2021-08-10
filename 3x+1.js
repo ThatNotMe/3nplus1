@@ -15,8 +15,7 @@ function add(szam){
 	num = szam;
 	
 	while(notbroken){		
-		if(times == 1000) {
-			console.log("done", times)
+		if(times == maxlength) {
 			notfound = false;
 			notbroken = false;
 			break;
@@ -40,7 +39,7 @@ function add(szam){
 }
 
 function eh(){
-	for (let v = 1; v <= hanyszor; v++){
+	for (let v = 1; v <= runs; v++){
 		add(v);
 		
 		array.forEach((a) => {
@@ -55,9 +54,9 @@ function eh(){
 			longestarray = longest[0]
 		};
 		
-		if(v == hanyszor){
+		if(v == runs || !notfound){
 			console.dir(longest, {'maxArrayLength': null});
-			console.log("\nlegnagyobb szam:", globalbig, "\nlegnagyobb szam array:", globalbigarray, "\nleghosszabb array hossza:", longest.length, "\nleghosszabb array:", longestarray)
+			console.log("\nBiggest number:", globalbig, "\nBiggest number start:", globalbigarray, "\nLongest array's length:", longest.length, "\nLongest array start:", longestarray)
 		}
 		if(notfound){
 			notbroken = true;
@@ -65,11 +64,11 @@ function eh(){
 			times = 0;
 			continue;
 		} else {
-			console("congratulación!!")
-			console.dir(array, {'maxArrayLength': 1001});
+			console.log("Ended because of max array length.")
 			break;
 		}	
 	}
 }
-var hanyszor = 100000000
+var runs = 100000000;
+var maxlength = 1001;
 eh();
