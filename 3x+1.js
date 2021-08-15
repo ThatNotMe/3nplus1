@@ -1,5 +1,4 @@
 var notfound = true;
-var message = null;
 var notbroken = true;
 var array = [];
 var times = 1;
@@ -13,21 +12,17 @@ var longestarray = 0;
 
 function add(szam){
 	num = szam;
-	
 	while(notbroken){		
 		if(times == maxlength) {
 			notfound = false;
 			notbroken = false;
 			break;
 		} else { times++ }
-		
 		array.push(num);
-		
 		if(num % 2 == 0) {
 			num = Math.floor(num/2)
 			continue;
 		}
-		
 		if(num == 1) {
 			notbroken = false;
 			break;
@@ -41,7 +36,6 @@ function add(szam){
 function eh(){
 	for (let v = 1; v <= runs; v++){
 		add(v);
-		
 		array.forEach((a) => {
 			if(a > biggest) biggest = a;
 			if(biggest > globalbig) {
@@ -53,7 +47,6 @@ function eh(){
 			longest = array;
 			longestarray = longest[0]
 		};
-		
 		if(v == runs || !notfound){
 			console.dir(longest, {'maxArrayLength': null});
 			console.log("\nBiggest number:", globalbig, "\nBiggest number start:", globalbigarray, "\nLongest array's length:", longest.length, "\nLongest array start:", longestarray)
